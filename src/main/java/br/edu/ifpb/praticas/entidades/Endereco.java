@@ -3,12 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.ifpb.praticas;
+package br.edu.ifpb.praticas.entidades;
+
+import javax.persistence.Embeddable;
 
 /**
  *
  * @author Isak
  */
+@Embeddable
 public class Endereco {
     
     private String rua;
