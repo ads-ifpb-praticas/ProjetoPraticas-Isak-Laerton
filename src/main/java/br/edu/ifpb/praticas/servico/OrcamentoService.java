@@ -14,7 +14,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
- * Classe encarregada dos servicos de Orçamento
+ * Classe de serviços de Orçamento
  * @author laerton
  */
 @Stateless

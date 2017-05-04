@@ -15,7 +15,7 @@ import javax.ejb.Stateless;
 import javax.inject.Inject;
 
 /**
- *
+ * Classe de serviço para Solicitação
  * @author laerton
  */
 @Stateless

@@ -11,9 +11,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 /**
@@ -21,12 +18,7 @@ import javax.persistence.OneToMany;
  * @author Isak
  */
 @Entity
-public class Cliente implements Serializable {
-    @Id@GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
-    private String nome;
-    private String telefone;
-    private String email;
+public class Cliente extends Usuario implements Serializable {
     @Embedded
     private Endereco endereco;
 
@@ -36,9 +28,6 @@ public class Cliente implements Serializable {
     public Cliente() {
     }
 
-    public int getId() {
-        return id;
-    }
     
     public  void addSolicitacao (Solicitacao solicitacao){
         this.solicitacoes.add(solicitacao);
@@ -55,35 +44,7 @@ public class Cliente implements Serializable {
     public void setSolicitacoes(List<Solicitacao> solicitacoes) {
         this.solicitacoes = solicitacoes;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
+    
     public Endereco getEndereco() {
         return endereco;
     }
@@ -94,8 +55,8 @@ public class Cliente implements Serializable {
 
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", nome=" + nome +
-               ", telefone=" + telefone + ", email=" + email +
+        return "Cliente{" + "id=" + super.getId() + ", nome=" + super.getNome() +
+               ", telefone=" + super.getTelefone() + ", email=" + super.getEmail() +
                ", endereco=" + endereco + '}';
     }  
    
