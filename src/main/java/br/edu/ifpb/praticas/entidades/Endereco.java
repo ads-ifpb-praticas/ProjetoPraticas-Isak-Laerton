@@ -17,10 +17,28 @@ public class Endereco {
     private String rua;
     private String bairro;
     private int numero;
+    private String cidade, uf;
 
     public Endereco() {
     }
 
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+    
     public String getRua() {
         return rua;
     }

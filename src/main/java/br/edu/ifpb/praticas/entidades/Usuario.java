@@ -26,7 +26,7 @@ public abstract class Usuario {
 
     @Basic
     @NotNull(message="E-mail eh obrigatorio")
-    private String email;
+    private String email, cpf;
     private String senha;
     private boolean admistrador;
     private String telefone;
@@ -42,6 +42,14 @@ public abstract class Usuario {
 
     public boolean isLiberado() {
         return liberado;
+    }
+
+    public String getCpf() {
+        return cpf;
+    }
+
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public void setLiberado(boolean liberado) {

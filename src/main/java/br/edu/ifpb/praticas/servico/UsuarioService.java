@@ -6,8 +6,8 @@
 package br.edu.ifpb.praticas.servico;
 
 import br.edu.ifpb.praticas.entidades.Usuario;
-import br.edu.ifpb.praticas.entidades.uteis.Email;
-import br.edu.ifpb.praticas.entidades.uteis.ProdutorQueue;
+import br.edu.ifpb.praticas.uteis.Email;
+import br.edu.ifpb.praticas.uteis.ProdutorQueue;
 import br.edu.ifpb.praticas.persistencia.GenericPersiste;
 import br.edu.ifpb.praticas.persistencia.UsuarioPersiste;
 import java.util.List;

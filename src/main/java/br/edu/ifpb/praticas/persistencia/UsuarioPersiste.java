@@ -23,6 +23,7 @@ import javax.persistence.Query;
 public class UsuarioPersiste {
     @PersistenceContext(unitName =  "praticas-PU")
     protected EntityManager em;
+    
     /***
      * Busca por todos os usuários que são admisniradores no sistema 
      * @return Lista de usuários.
@@ -33,6 +34,7 @@ public class UsuarioPersiste {
         lista.addAll(findByProfissionalAdministrador());
         return lista;
     }
+    
     /**
      * Busca por todos os Usuários do tipo cliente que são administradores do sistema
      * @return Lista de Usuários
@@ -41,6 +43,7 @@ public class UsuarioPersiste {
        Query q = em.createQuery("Select c from Cliente as c WHERE c.admistrador = true", Cliente.class);
        return q.getResultList();
     }
+    
     /***
      * Busca por todos os usuários Profissionais que são adminsitradores do sistema
      * @return Lista de usuários.

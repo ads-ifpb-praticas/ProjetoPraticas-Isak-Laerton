@@ -7,7 +7,6 @@ package br.edu.ifpb.praticas.persistencia;
 
 import br.edu.ifpb.praticas.entidades.Orcamento;
 import br.edu.ifpb.praticas.entidades.Profissional;
-import br.edu.ifpb.praticas.entidades.Solicitacao;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;

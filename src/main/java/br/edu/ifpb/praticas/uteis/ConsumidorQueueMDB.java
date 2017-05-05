@@ -1,4 +1,4 @@
-package br.edu.ifpb.praticas.entidades.uteis;
+package br.edu.ifpb.praticas.uteis;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
