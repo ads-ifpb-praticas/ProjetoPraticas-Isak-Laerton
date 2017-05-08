@@ -6,6 +6,7 @@
 package br.edu.ifpb.praticas.entidades;
 
 import javax.persistence.Basic;
+import javax.persistence.Embedded;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -23,14 +24,27 @@ public abstract class Usuario {
     @GeneratedValue(strategy=GenerationType.AUTO)
     private long id;
     private String nome;
+    @Embedded
+    private Endereco endereco;
 
     @Basic
     @NotNull(message="E-mail eh obrigatorio")
     private String email, cpf;
     private String senha;
     private boolean admistrador;
-    private String telefone;
+    private String telefone, pathfoto;
     private boolean liberado = false;
+
+    public Usuario(String nome, String email, String cpf) {
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+    }
+
+    public Usuario() {
+    }
+    
+    
     
     public long getId() {
         return id;
@@ -38,6 +52,22 @@ public abstract class Usuario {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getPathfoto() {
+        return pathfoto;
+    }
+
+    public void setPathfoto(String pathfoto) {
+        this.pathfoto = pathfoto;
     }
 
     public boolean isLiberado() {

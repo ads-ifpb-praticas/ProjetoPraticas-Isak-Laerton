@@ -22,6 +22,14 @@ public class Endereco {
     public Endereco() {
     }
 
+    public Endereco(String rua, String bairro, int numero, String cidade, String uf) {
+        this.rua = rua;
+        this.bairro = bairro;
+        this.numero = numero;
+        this.cidade = cidade;
+        this.uf = uf;
+    }
+    
     public String getCidade() {
         return cidade;
     }
@@ -61,6 +69,11 @@ public class Endereco {
 
     public void setNumero(int numero) {
         this.numero = numero;
+    }
+
+    @Override
+    public String toString() {
+        return "Endereco{" + "rua=" + rua + ", bairro=" + bairro + ", numero=" + numero + ", cidade=" + cidade + ", uf=" + uf + '}';
     }
     
     

@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 import java.util.List;
 import javax.persistence.CascadeType;
-import javax.persistence.Embedded;
+
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
@@ -19,8 +19,6 @@ import javax.persistence.OneToMany;
  */
 @Entity
 public class Cliente extends Usuario implements Serializable {
-    @Embedded
-    private Endereco endereco;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Solicitacao> solicitacoes = new LinkedList<>();
@@ -28,6 +26,10 @@ public class Cliente extends Usuario implements Serializable {
     public Cliente() {
     }
 
+    public Cliente(String nome, String email, String cpf) {
+        super(nome, email, cpf);
+    }
+    
     
     public  void addSolicitacao (Solicitacao solicitacao){
         this.solicitacoes.add(solicitacao);
@@ -45,19 +47,13 @@ public class Cliente extends Usuario implements Serializable {
         this.solicitacoes = solicitacoes;
     }
     
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
+    
 
     @Override
     public String toString() {
         return "Cliente{" + "id=" + super.getId() + ", nome=" + super.getNome() +
                ", telefone=" + super.getTelefone() + ", email=" + super.getEmail() +
-               ", endereco=" + endereco + '}';
+               ", endereco=" + super.getEndereco() +'}';
     }  
    
     

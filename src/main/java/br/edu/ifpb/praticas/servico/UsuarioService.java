@@ -10,6 +10,8 @@ import br.edu.ifpb.praticas.uteis.Email;
 import br.edu.ifpb.praticas.uteis.ProdutorQueue;
 import br.edu.ifpb.praticas.persistencia.GenericPersiste;
 import br.edu.ifpb.praticas.persistencia.UsuarioPersiste;
+import br.edu.ifpb.praticas.validacao.ValidaCPF;
+import br.edu.ifpb.praticas.validacao.ValidaDados;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
@@ -34,7 +36,11 @@ public class UsuarioService {
      * @param usuario - Usuário a ser persistido
      * @return - Usuário persistido.
      */
-    public Usuario create (Usuario usuario){
+    public Usuario create (Usuario usuario) throws Exception{
+        ValidaDados.validaNome(usuario.getNome());
+        ValidaDados.validaEndereco(usuario.getEndereco());
+        ValidaDados.validaEmail(usuario.getEmail());
+        ValidaCPF.isCPF(usuario.getCpf());
         usuario= gpUsuario.create(usuario);
         Email email = new Email(emailRemetente, emailsAdministrador(), "Confirmacao de cadastro", "Existe usuarios pendentes de autorização.");
         produtor.enviar(email);

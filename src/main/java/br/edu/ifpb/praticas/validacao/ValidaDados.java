@@ -42,7 +42,8 @@ public class ValidaDados {
         if (endereco.getCidade().equals(""))throw  new Exception("Endereço não pode ter o nome da cidade em branco.");
         
         if (endereco.getCidade().length() > 50) throw  new Exception ("Cidade não pode conter nome com mais de 50 caracteres.");
-        
+        if (endereco.getUf().trim().equals("")) throw  new Exception("UF do endereço não pode ficar em branco.");
+        if (endereco.getUf().length() != 2) throw  new Exception("UF não pode conter mais ou menos que 2 caracteres");
         return true;
     }
     
@@ -54,11 +55,16 @@ public class ValidaDados {
      */
     public static boolean validaNome (String nome) throws Exception{
         if (nome.trim().equals("")) throw  new Exception("Cliente não pode conter nome vazio!");
-        Pattern pattern = Pattern.compile(" ^[[ ]|\\p{L}*]+$");
-        Matcher match = pattern.matcher(nome);
-        if (!match.find()) throw  new Exception("Cliente não pode conter caracteres especiais");
+        
         if (nome.length() < 5 || nome.length() > 70) throw new Exception("Cliente não pode ter nome maior que 70 e menor que 5 caracteres");
         return true;
+    }
+    
+    public static boolean isCaractresEspecias(String nome){
+        Pattern pattern = Pattern.compile(" ^[[ ]|\\p{L}*]+$");
+        Matcher match = pattern.matcher(nome);
+        if (!match.find()) return true;
+        return false;
     }
     
     public static boolean validaEmail (String email) throws Exception{

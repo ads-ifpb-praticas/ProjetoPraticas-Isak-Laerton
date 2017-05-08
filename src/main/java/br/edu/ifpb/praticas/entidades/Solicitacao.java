@@ -28,9 +28,9 @@ public class Solicitacao implements Serializable {
     private int id;
     private Cliente cliente;
     
-    @OneToMany(mappedBy = "solicitacao")
+    @OneToMany(mappedBy = "solicitacao", cascade = CascadeType.MERGE)
     private List<Orcamento> orcamentos;
-    private boolean fechado;
+    private boolean fechado, concluido;
     private LocalDate dataInicio;
     private LocalDate dataFim;
     private String horario;
@@ -43,7 +43,18 @@ public class Solicitacao implements Serializable {
 
     public Solicitacao() {
         this.fechado = false;
+        this.concluido =false;
     }
+
+    public boolean isConcluido() {
+        return concluido;
+    }
+
+    public void setConcluido(boolean concluido) {
+        this.concluido = concluido;
+    }
+    
+    
 
     public String getObsAvaliacao() {
         return obsAvaliacao;
@@ -143,6 +154,14 @@ public class Solicitacao implements Serializable {
 
     public void setOrcamentos(List<Orcamento> orcamentos) {
         this.orcamentos = orcamentos;
+    }
+    /***
+     * Método encarredado de atualizar a informação de um orcamento da lista de orcamento
+     * @param orcamento 
+     */
+    public void updateOrcamento(Orcamento orcamento) {
+        this.orcamentos.remove(orcamento);
+        this.orcamentos.add(orcamento);
     }
    
     

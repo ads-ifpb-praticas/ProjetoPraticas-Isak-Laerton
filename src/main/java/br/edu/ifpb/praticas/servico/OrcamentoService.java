@@ -24,17 +24,7 @@ public class OrcamentoService {
     @Inject
     private OrcamentoPersiste orcamentop;
     
-    public Orcamento create (Orcamento orcamento){
-        return gpOrcamento.create(orcamento);
-    }
     
-    public void edit(Orcamento orcamento){
-        gpOrcamento.edit(orcamento);
-    }
-    
-    public void destroy (Orcamento orcamento){
-       gpOrcamento.destroy(Orcamento.class, (long) orcamento.getId());
-    }
     /***
      * Busca por uma lista de orçamentos aprovados filtrados por profissional em ordem crscente de date e hora.
      * @param profissional - Profissional usado como filtro

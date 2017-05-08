@@ -27,6 +27,11 @@ public class Profissional extends Usuario implements Serializable {
     public Profissional() {
     }
 
+    public Profissional(String nome, String email, String cpf) {
+        super(nome, email, cpf);
+    }
+
+    
     public List<Orcamento> getOrcamentos() {
         return orcamentos;
     }
